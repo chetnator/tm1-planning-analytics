@@ -188,15 +188,15 @@ dense
 Approaches to Project Management/Product Development
 =======================
 
-1. Waterfall Approach
+<strong>1. Waterfall Approach</strong>
 - More of a systematic and static approach. If the product you are trying to deliver requires involvement of multiple teams and stakeholders especially in hierarchy intensive companies. This approach might work better.
 - Downfall is reduction in product deployment time and less flexible to making changes in the product requirements and objectives. 
 
-2. Agile Approach 
+<strong>2. Agile Approach</strong>
 - More flexible and friendly approach when product requirements are not clearly defined upfront. Enables colobaration with various teams however, tasks are identified and prioritised according to the product needs and wants. Industry famous as this encourages continous feedback loop between users and developers.
 - Hard to predict product delivery due to looping/iterative nature of project management.
 
-3. Prototyping Approach
+<strong>3. Prototyping Approach</strong>
 - Best to showcase users what the product you are trying to deliver can offer. Helps to develop a proof of concept model before unleashing full development of the system/product. Therefore may not have to be fully functional.
 - This approach is ideally embedded in both waterfall and agile delivery pipelines.
 
