@@ -55,10 +55,10 @@ On top of the two libraries installed earlier, you will also need to download th
 import requests
 from requests_kerberos import HTTPKerberosAuth, REQUIRED
 
-Username = <enter your username>
-Password = <enter your password>
+Username = " <enter your username> "
+Password = " <enter your password> "
 
-Domain = <enter your domain e.g. ADS>
+Domain = " <enter your domain e.g. ADS> "
 
 # Assign Cognos BI server URL found in tm1s.cfg file example shown below
 CognosURL = "https://saturn-02:440/ibmcognos/bi/v1/disp"
@@ -129,13 +129,14 @@ Full Code
 =======================
 
 ```python
+import pandas as pd
 import requests
 from requests_kerberos import HTTPKerberosAuth, REQUIRED
 
-Username = <enter your username>
-Password = <enter your password>
+Username = " <enter your username> "
+Password = " <enter your password> "
 
-Domain = <enter your domain e.g. ADS>
+Domain = " <enter your domain e.g. ADS> "
 
 # Assign Cognos BI server URL found in tm1s.cfg file example shown below
 CognosURL = "https://saturn-02:440/ibmcognos/bi/v1/disp"
