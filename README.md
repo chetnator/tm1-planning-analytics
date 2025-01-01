@@ -174,7 +174,7 @@ dense
 - can include single element
 - must always be the last dimension of the cube to determine the data type of the cube cell
 
-<strong>Time Dimesnion?</strong>
+<strong>Time Dimension?</strong>
 - flexibility to compare data between years, months, etc.
 - is the model rolling or one year model
 - maintenance effort required to add new time cycles
