@@ -1,6 +1,6 @@
 # TM1 Power BI Integration using TM1 REST API
 
-**This section covers the basics of the TM1 REST API to help you get started. For a detailed overview of OData query options and operations, refer to [*ODATARESTAPI.md*](/ODATA-TM1RESTAPI.md)**
+**This section covers the basics of the TM1 REST API to help you get started. For a detailed overview of OData query options and operations, refer to [*ODATARESTAPI.md*](/TM1%20REST%20%API/ODATA-TM1RESTAPI.md)**
 
 If you're already familiar with OData standards, you can skip the above file.
 
