@@ -172,7 +172,7 @@ CellSetID = tm1response.json()['ID']
 
 # GET api request to retrive cell values with dimension names using cellset ID
 # =================================================================================
-TM1URL2 = f"https://helium-06.ads.ntu.ac.uk:5050/api/v1/Cellsets('{CellSetID}')/Cells?$expand=Members($select=Name)"
+TM1URL2 = f"https://saturn-06.ads.ide.ac.uk:8881/api/v1/Cellsets('{CellSetID}')/Cells?$expand=Members($select=Name)"
 # if you need dimension values replace ($select=Name) to ($select=Name;$expand=Hierarchy($select=Name)) in the URL above
 
 httpheaders = { 'Authorization': 'CAMPassport ' + CAMPassport, 'Content-type': 'application/json'}
