@@ -1,6 +1,6 @@
 # TM1 Power BI Integration using TM1 REST API
 
-This section covers the basics of the TM1 REST API to help you get started. For a detailed overview of OData query options and operations, refer to [*ODATARESTAPI.md*](/ODATA-RESTAPI.md)
+**This section covers the basics of the TM1 REST API to help you get started. For a detailed overview of OData query options and operations, refer to [*ODATARESTAPI.md*](/ODATA-RESTAPI.md)**
 
 If you're already familiar with OData standards, you can skip the above file.
 
@@ -63,10 +63,6 @@ Supports both Planning Analytics and Cognos Analytics groups. Essential for Plan
 Native Planning Analytics groups cannot be used to assign rights in this mode; only Cognos groups are available.
 
 Below, the Python script will be provided to authenticate using **mode 5**.
-
-This repository focuses on connecting to the TM1 server when the IntegratedSecurityMode parameter in tm1s.cfg is set to 5. E.g. 
-
-Mode 5 uses IBM Cognos Analytics or Cognos Authentication Manager (CAM) authentication. It involves two steps:
 
 ## API Calls
 
