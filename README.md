@@ -100,21 +100,21 @@ To launch the TM1 Instance, follow these steps to create a new instance in *IBM 
 
 A TM1 Instances have mainly have four components: **Cubes, Dimensions, Processes, Chores and Control Objects**.
 
-- Cubes
+- **Cubes**
     - Data containers that are formed by two or more dimensions. Each intersection between dimensions contain either a value or is empty. Cubes are TM1 Objects that are stored in the data directory of the TM1 server. 
     - Views are arrangements of dimensions within a Cube tialored to fill specific requirements from the end-users. Views come in two forms: NativeViews and MDXViews.
         1. NativeViews are stored views within TM1 that have fixed rows, columns and context dimensions.
         2. MDXViews uses Multidimensional Expressions that queries the Cube to create a dynamic view using MDX-enabled interfaces such as TM1 Planning Analytics Workspace. These are not original TM1 Objects unless explicitly saved by the modeller.
-- Dimensions
+- **Dimensions**
     -  Contain elements which are addressed as members of the dimensions. Modellers create parent-child relationship between elements which adds levels to the elements.
     - Attributes can set be for each element to provide additional information about the element. Most common uses are Alias that define a more user friendly name for the elements (these must be unique). Other attributes such as `format` and `picklist` are pre-defined TM1 attributes that perform a certain function.
     - With new Hierarchy feature added into TM1's Architecture. These are now mainly Hierarchy containers.
         - Hierarchies are alternative roll-ups that offer different consolidation defination to cater the needs of reporting. Leaves are re-arranged with alternative parent relationship.
-- Processes
+- **Processes**
     - These can be created by the TM1 system or a Modeller. More information find below.
-- Chores
+- **Chores**
     - Schedule TurboIntegrator (TI) processes by setting time and date. To automate TM1 server activities.
-- Control Objects
+- **Control Objects**
     - Typically store system generated cubes and dimensions. Very useful to understand how TM1 server stores or control data objects and also access to security cubes to define user permissions and data accessibility. 
 
 ## TurboIntegrator (TI) Functions
@@ -124,16 +124,16 @@ TurboIntegrator (TI) processes are also one of the many TM1 Objects. TI language
 TI Process Sections
 A TI process script is divided into four sections: **Prolog, Metadata, Data, and Epilog**, executed in the following order:
 
-1. Prolog:
+1. **Prolog**:
 Executes once before opening the data source. Used for initial setups like variable declarations and configuration settings.
 
-2. Metadata:
+2. **Metadata**:
 Iterates through each record of the data source, creating a virtual copy of dimensions for manipulation. Changes are committed only at the end of this section unless direct functions (e.g., DimensionElementInsertDirect(), DimensionElementComponentAddDirect(), etc.) are used, which commit changes immediately. However, frequent use of direct functions may reduce performance. This section is solely for dimension manipulation and should not be used to load data into cubes.
 
-3. Data:
+3. **Data**:
 Processes each record of the data source and is primarily used to load data into cubes. Dimension manipulations can also be performed here using direct functions without significant performance impact, allowing for better error handling and flexibility.
 
-4. Epilog:
+4. **Epilog**:
 Executes once after the data source is closed. This section is typically used for tasks such as logging errors, summarising the process outcome, or calling other TI processes.
 
 TI processes always follow this sequence, ensuring a structured and logical flow for data and system operations.
@@ -148,8 +148,8 @@ However, when rule-derived calculations exist, in another terms, when the Cube c
 
 To mitigate this, TM1 provides two key components: `SKIPCHECK` and `FEEDERS`.
 
-- SKIPCHECK: Re-enables the Sparse Consolidation Algorithm.
-- FEEDERS: Marks rule-derived cells as "fed," ensuring the algorithm includes these cells in consolidation while maintaining performance optimisation.
+- **SKIPCHECK**: Re-enables the Sparse Consolidation Algorithm.
+- **FEEDERS**: Marks rule-derived cells as "fed," ensuring the algorithm includes these cells in consolidation while maintaining performance optimisation.
 
 Using `SKIPCHECK` and `FEEDERS` together helps maintain efficient consolidations, even with rule-derived calculations.
 

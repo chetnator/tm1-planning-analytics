@@ -151,36 +151,51 @@ Domain = " <enter value> "
 CognosURL = " <enter value> "
 # e.g "https://saturn-03.ads.ide.ac.uk:883/ibmcognos/bi/v1/disp"
 
-# Send GET request if Keberos Auth is used
+# Send GET request if Keberos Auth is used (preferred)
 kerberos_auth = HTTPKerberosAuth(principal=f'{Username}@{Domain}', password=Password, mutual_authentication=REQUIRED)
 CAMresponse = requests.get(CognosURL, auth=kerberos_auth)
 
-CAMPassport = CAMresponse.cookies['cam_passport']
+if CAMresponse.status_code == 200:
+    CAMPassport = CAMresponse.cookies['cam_passport']
+elif CAMresponse.status_code == 404:
+    print(CAMresponse.status_code)
+    print(CAMresponse.json()['error']['message'])
+else:
+    print(CAMresponse.status_code)
 
-# POST api request to retrieve CellSet from the cube view
+# POST request to retrieve CellSet from the cube view
 # =================================================================================
-cubename = "'< enter value >'"
-viewname = "'< enter value >'"
+cubename = "'< enter cube name >'"
+viewname = "'< enter view name >'"
 
-TM1URL = f"https://saturn-06.ads.ide.ac.uk:8881/api/v1/Cubes({cubename})/Views({viewname})/tm1.Execute?$expand=Cells"
+vTM1URL = " < enter TM1 API endpoint > "
+# e.g., "https://saturn-06.ads.ide.ac.uk:8881/api/v1"
+
+TM1URL = f"{vTM1URL}/Cubes({cubename})/Views({viewname})/tm1.Execute?$expand=Cells"
 
 httpheaders = { 'Authorization': 'CAMPassport ' + CAMPassport, 'Content-type': 'application/json'}
 tm1response = requests.post(TM1URL, headers=httpheaders, verify=False)
 
-# Retrieve the location of the cell values stored
-CellSetID = tm1response.json()['ID']
 
-# GET api request to retrive cell values with dimension names using cellset ID
+if tm1response.status_code == 200 or tm1response.status_code == 201:
+    CellSetID = tm1response.json()['ID']
+elif tm1response.status_code == 404:
+    print(tm1response.status_code)
+    print(tm1response.json()['error']['message'])
+else:
+    print(tm1response.status_code)
+
+# GET request to retrive cell values with dimension names using cellset ID
 # =================================================================================
-TM1URL2 = f"https://saturn-06.ads.ide.ac.uk:8881/api/v1/Cellsets('{CellSetID}')/Cells?$expand=Members($select=Name)"
-# if you need dimension values replace ($select=Name) to ($select=Name;$expand=Hierarchy($select=Name)) in the URL above
+TM1URL2 = f"{vTM1URL}/Cellsets('{CellSetID}')/Cells?$expand=Members($select=Name)"
+# if you need dimension names replace ($select=Name) to ($select=Name;$expand=Hierarchy($select=Name)) in the URL above
 
 httpheaders = { 'Authorization': 'CAMPassport ' + CAMPassport, 'Content-type': 'application/json'}
 tm1response2 = requests.get(TM1URL2, headers=httpheaders, verify=False)
 
 print(tm1response2.json())
 # the output returned is in json with complex data structures. Therefore further data manipulation is required either in this same Python script or in M code in Power Query. Python is faster than Power Query especially when manipulating data with more than 1 million rows.
-# Scripts for further manipulation will be shared in due course
+# Scripts for further manipulation is shared in Full Code link below
 ```
 Access code file [*here*](/Full-Code.md)
 
