@@ -100,7 +100,7 @@ To launch the TM1 Instance, follow these steps to create a new instance in *IBM 
 
 A TM1 instance mainly has four components: **Cubes, Dimensions, Processes and Chores**. **Control Objects** is also considered one of the key components of a TM1 instance
 
-1. **Cubes*8
+1. **Cubes**
     - Data containers formed by two or more dimensions. Each intersection between dimensions contains either a value or is empty. Cubes are TM1 objects that are stored in the data directory of the TM1 server.
     - Views are arrangements of dimensions within a Cube tailored to meet specific requirements from the end-users. Views come in two forms: Native Views and MDX Views.
         1. **Native Views** are stored views within TM1 that have fixed rows, columns, and context dimensions.
