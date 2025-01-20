@@ -125,10 +125,10 @@ import pandas as pd
 ## Azure Key Vaults
 # =================================================================================
 # Set environment variables directly in the script
-os.environ["AZURE_CLIENT_ID"] = " <enter value> "
-os.environ["AZURE_CLIENT_SECRET"] = " <enter value> "
-os.environ["AZURE_TENANT_ID"] = " <enter value> "
-os.environ["VAULT_URL"] = " <enter value> "
+os.environ["AZURE_CLIENT_ID"] = " < enter value > "
+os.environ["AZURE_CLIENT_SECRET"] = " < enter value > "
+os.environ["AZURE_TENANT_ID"] = " < enter value > "
+os.environ["VAULT_URL"] = " < enter value > "
 
 # Create a DefaultAzureCredential instance
 credential = DefaultAzureCredential()
@@ -137,19 +137,20 @@ credential = DefaultAzureCredential()
 client = SecretClient(vault_url=os.environ["VAULT_URL"], credential=credential)
  
 # Retrieve the secrets
-username_secret = client.get_secret("TM1User")
-password_secret = client.get_secret("TM1Pass")
+username_secret = client.get_secret(" < enter your key vault variable name for username > ")
+password_secret = client.get_secret(" < enter your key vault variable name for password > ")
  
 # Send GET Reguest to Cognos BI Server to receive CAM Passport via kerberos auth
 # ========================================================================================
 Username = username_secret.value
 Password = password_secret.value
 
-Domain = " <enter value> " 
+Domain = " < enter value > " 
 # e.g "ADS"
 
-CognosURL = " <enter value> "
-# e.g "https://saturn-03.ads.ide.ac.uk:883/ibmcognos/bi/v1/disp"
+CognosURL = " < enter value > "
+# Syntax: "<protocol>://<server name>:<port number>/ibmcognos/bi/v1/disp"
+# e.g "https://mercury.ads.ide.ac.uk:5000/ibmcognos/bi/v1"
 
 # Send GET request if Keberos Auth is used (preferred)
 kerberos_auth = HTTPKerberosAuth(principal=f'{Username}@{Domain}', password=Password, mutual_authentication=REQUIRED)
@@ -165,11 +166,12 @@ else:
 
 # POST request to retrieve CellSet from the cube view
 # =================================================================================
-cubename = "'< enter cube name >'"
-viewname = "'< enter view name >'"
+cubename = "' < enter cube name > '"
+viewname = "' < enter view name > '"
 
 vTM1URL = " < enter TM1 API endpoint > "
-# e.g., "https://saturn-06.ads.ide.ac.uk:8881/api/v1"
+# Syntax: "<protocol>://<server name>:<port number>/api/v1"
+# e.g., "https://saturn.ads.ide.ac.uk:8881/api/v1"
 
 TM1URL = f"{vTM1URL}/Cubes({cubename})/Views({viewname})/tm1.Execute?$expand=Cells"
 
@@ -197,7 +199,7 @@ print(tm1response2.json())
 # the output returned is in json with complex data structures. Therefore further data manipulation is required either in this same Python script or in M code in Power Query. Python is faster than Power Query especially when manipulating data with more than 1 million rows.
 # Scripts for further manipulation is shared in Full Code link below
 ```
-Access code file [*here*](/Full-Code.md)
+Access code file [*here*](/TM1%20REST%20API/Full-Code.md)
 
 ## Alternatives to REST API
 

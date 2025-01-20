@@ -41,7 +41,7 @@ Domain = " < enter value > "
 
 CognosURL = " < enter value > "
 # Syntax: "<protocol>://<server name>:<port number>/ibmcognos/bi/v1/disp"
-# e.g "https://mercury.ads.ide.ac.uk:5000/ibmcognos/bi/v1/disp"
+# e.g "https://mercury.ads.ide.ac.uk:5000/ibmcognos/bi/v1"
 
 # Send GET request if Keberos Auth is used (preferred)
 kerberos_auth = HTTPKerberosAuth(principal=f'{Username}@{Domain}', password=Password, mutual_authentication=REQUIRED)
