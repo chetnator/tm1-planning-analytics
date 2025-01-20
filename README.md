@@ -98,24 +98,28 @@ To launch the TM1 Instance, follow these steps to create a new instance in *IBM 
 
 ## Components of TM1 Instance
 
-A TM1 Instances have mainly have four components: **Cubes, Dimensions, Processes, Chores and Control Objects**.
+A TM1 instance mainly has four components: **Cubes, Dimensions, Processes and Chores**. **Control Objects** is also considered one of the key components of a TM1 instance
 
-- **Cubes**
-    - Data containers that are formed by two or more dimensions. Each intersection between dimensions contain either a value or is empty. Cubes are TM1 Objects that are stored in the data directory of the TM1 server. 
-    - Views are arrangements of dimensions within a Cube tialored to fill specific requirements from the end-users. Views come in two forms: NativeViews and MDXViews.
-        1. NativeViews are stored views within TM1 that have fixed rows, columns and context dimensions.
-        2. MDXViews uses Multidimensional Expressions that queries the Cube to create a dynamic view using MDX-enabled interfaces such as TM1 Planning Analytics Workspace. These are not original TM1 Objects unless explicitly saved by the modeller.
-- **Dimensions**
-    -  Contain elements which are addressed as members of the dimensions. Modellers create parent-child relationship between elements which adds levels to the elements.
-    - Attributes can set be for each element to provide additional information about the element. Most common uses are Alias that define a more user friendly name for the elements (these must be unique). Other attributes such as `format` and `picklist` are pre-defined TM1 attributes that perform a certain function.
-    - With new Hierarchy feature added into TM1's Architecture. These are now mainly Hierarchy containers.
-        - Hierarchies are alternative roll-ups that offer different consolidation defination to cater the needs of reporting. Leaves are re-arranged with alternative parent relationship.
-- **Processes**
-    - These can be created by the TM1 system or a Modeller. More information find below.
-- **Chores**
-    - Schedule TurboIntegrator (TI) processes by setting time and date. To automate TM1 server activities.
-- **Control Objects**
-    - Typically store system generated cubes and dimensions. Very useful to understand how TM1 server stores or control data objects and also access to security cubes to define user permissions and data accessibility. 
+1. **Cubes*8
+    - Data containers formed by two or more dimensions. Each intersection between dimensions contains either a value or is empty. Cubes are TM1 objects that are stored in the data directory of the TM1 server.
+    - Views are arrangements of dimensions within a Cube tailored to meet specific requirements from the end-users. Views come in two forms: Native Views and MDX Views.
+        1. **Native Views** are stored views within TM1 that have fixed rows, columns, and context dimensions.
+        2. **MDX Views** use Multidimensional Expressions to query the Cube and create a dynamic view using MDX-enabled interfaces such as TM1 Planning Analytics Workspace. These are not original TM1 objects unless explicitly saved by the modeller.
+
+2. **Dimensions**
+    - Contain elements that are addressed as members of the dimension. Modellers create parent-child relationships between elements, which adds levels to the elements.
+    - Attributes can be set for each element to provide additional information about the element. The most common use is Alias, which defines a more user-friendly name for the elements (these must be unique). Other attributes such as format and picklist are pre-defined TM1 attributes that perform a specific function.
+    -  With the new **Hierarchy** feature added to TM1's architecture, these are now primarily hierarchy containers.
+        - Hierarchies are alternative roll-ups that offer different consolidation definitions to cater to reporting needs. Leaves are rearranged with alternative parent relationships.
+
+3. **Processes**
+- These can be created by the TM1 system or a modeller. More information can be found below.
+
+4. **Chores**
+- Schedule TurboIntegrator (TI) processes by setting time and date to automate TM1 server activities.
+
+5. **Control Objects**
+- Typically store system-generated cubes and dimensions. These are very useful to understand how the TM1 server stores or controls data objects and also provide access to security cubes to define user permissions and data accessibility.
 
 ## TurboIntegrator (TI) Functions
 
